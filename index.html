@@ -1,74 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="sv.png">
-    <title>FilmesImoveis</title>
-    <style>
-      html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-      }
+<head>
+  <meta charset="UTF-8">
+  <title>Selecione um Vídeo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-      .container {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
+    .container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-      .document-select {
-        margin-bottom: 20px;
-      }
+    .document-select {
+      margin-bottom: 20px;
+      text-align: center;
+    }
 
-      .document-title {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
+    .document-title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
 
-      .document-body {
-        width: 80%;
-        height: 80%;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="document-select">
-        <label for="video-select">Escolha um Filme:</label>
-        <select id="video-select">
-          <option value="">--Escolha um Filme--</option>
-          <option value="Filmeharas.mp4">Filmeharas.mp4</option>
-          <option value="FilmeApto.mp4">FilmeApto.mp4</option>
-        </select>
-        <button onclick="loadVideo()">Carregar</button>
-      </div>
-      <div class="document-title"></div>
-      <div class="document-body"></div>
+    .document-body {
+      width: 80%;
+      height: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    select,
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+    }
+
+    video {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="document-select">
+      <label for="video-select">Escolha um Filme:</label>
+      <select id="video-select">
+        <option value="">--Escolha um Filme--</option>
+        <option value="Filmeharas.mp4">Filmeharas.mp4</option>
+        <option value="FilmeApto.mp4">FilmeApto.mp4</option>
+      </select>
+      <button onclick="loadVideo()">Carregar</button>
     </div>
+    <div class="document-title"></div>
+    <div class="document-body"></div>
+  </div>
 
-    <script>
-      function loadVideo() {
-        const selectElement = document.getElementById("video-select");
-        const selectedValue = selectElement.value;
-        const documentTitle = document.querySelector(".document-title");
+  <script>
+    function loadVideo() {
+      const selectElement = document.getElementById("video-select");
+      const selectedValue = selectElement.value;
+      const documentTitle = document.querySelector(".document-title");
 
-        documentTitle.innerText = selectedValue;
+      documentTitle.innerText = selectedValue;
 
-        const videoElement = document.createElement("video");
-        videoElement.setAttribute("src", selectedValue);
-        videoElement.setAttribute("type", "video/mp4");
-        videoElement.setAttribute("width", "100%");
-        videoElement.setAttribute("height", "100%");
-        videoElement.setAttribute("controls", "true");
+      const videoElement = document.createElement("video");
+      videoElement.setAttribute("src", selectedValue);
+      videoElement.setAttribute("type", "video/mp4");
+      videoElement.setAttribute("controls", "true");
 
-        const documentBody = document.querySelector(".document-body");
-        documentBody.innerHTML = "";
-        documentBody.appendChild(videoElement);
-      }
-    </script>
-  </body>
+      const documentBody = document.querySelector(".document-body");
+      documentBody.innerHTML = "";
+      documentBody.appendChild(videoElement);
+    }
+  </script>
+</body>
 </html>
