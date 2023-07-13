@@ -1,99 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
+  <title>Apto</title>
   <link rel="icon" type="image/png" href="sv.png">
-  <title>Selecione um Vídeo</title>
   <style>
     body {
       margin: 0;
       padding: 0;
+      background-color: #f1f1f1;
       font-family: Arial, sans-serif;
     }
-
-    .container {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+  
+    .video-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
-
-    .document-select {
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .document-title {
-      font-size: 28px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .document-body {
-      width: 80%;
-      height: 80%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    select,
-    button {
-      font-size: 18px;
-      padding: 10px 20px;
-    }
-
+  
     video {
-      max-width: 100%;
-      max-height: 100%;
-    }
-
-    @media (max-width: 1024px) {
-      .document-title {
-        font-size: 24px;
-      }
-
-      select,
-      button {
-        font-size: 16px;
-        padding: 8px 16px;
-      }
+      width: 100%;
+      height: auto;
     }
   </style>
+  <script>
+    function startVideo() {
+      var video = document.getElementById('myVideo');
+      video.play();
+    }
+  </script>
 </head>
 <body>
-  <div class="container">
-    <div class="document-select">
-      <label for="video-select">Escolha um Filme:</label>
-      <select id="video-select">
-        <option value="">--Escolha um Filme--</option>
-        <option value="Filmeharas.mp4">Filmeharas.mp4</option>
-        <option value="FilmeApto.mp4">FilmeApto.mp4</option>
-      </select>
-      <button onclick="loadVideo()">Carregar</button>
-    </div>
-    <div class="document-title"></div>
-    <div class="document-body"></div>
+  <div class="video-container">
+    <video id="myVideo" controls autoplay>
+      <source src="FilmeApto.mp4" type="video/mp4">
+      Tu navegador no admite la reproducción de videos HTML5.
+    </video>
   </div>
-
   <script>
-    function loadVideo() {
-      const selectElement = document.getElementById("video-select");
-      const selectedValue = selectElement.value;
-      const documentTitle = document.querySelector(".document-title");
-
-      documentTitle.innerText = selectedValue;
-
-      const videoElement = document.createElement("video");
-      videoElement.setAttribute("src", selectedValue);
-      videoElement.setAttribute("type", "video/mp4");
-      videoElement.setAttribute("controls", "true");
-
-      const documentBody = document.querySelector(".document-body");
-      documentBody.innerHTML = "";
-      documentBody.appendChild(videoElement);
-    }
+    startVideo();
   </script>
 </body>
 </html>
