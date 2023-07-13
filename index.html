@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="sv.png">
-  <title>Selecione um Filme</title>
+  <title>Selecione um Vídeo</title>
   <style>
     body {
       margin: 0;
@@ -48,14 +48,26 @@
       max-width: 100%;
       max-height: 100%;
     }
+
+    @media (max-width: 1024px) {
+      .document-title {
+        font-size: 24px;
+      }
+
+      select,
+      button {
+        font-size: 16px;
+        padding: 8px 16px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="document-select">
-      <label for="video-select">Selecione um Filme:</label>
+      <label for="video-select">Escolha um Filme:</label>
       <select id="video-select">
-        <option value="">--Selecione um Filme--</option>
+        <option value="">--Escolha um Filme--</option>
         <option value="Filmeharas.mp4">Filmeharas.mp4</option>
         <option value="FilmeApto.mp4">FilmeApto.mp4</option>
       </select>
@@ -85,3 +97,4 @@
   </script>
 </body>
 </html>
+
