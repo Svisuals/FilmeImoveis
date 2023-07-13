@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>FilmesImoveis</title>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+      .container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .document-select {
+        margin-bottom: 20px;
+      }
+
+      .document-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .document-body {
+        width: 80%;
+        height: 80%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="document-select">
+        <label for="video-select">Select a video:</label>
+        <select id="video-select">
+          <option value="">--Select a video--</option>
+          <option value="Filmeharas.mp4">Filmeharas.mp4</option>
+          <option value="FilmeApto.mp4">FilmeApto.mp4</option>
+        </select>
+        <button onclick="loadVideo()">Load</button>
+      </div>
+      <div class="document-title"></div>
+      <div class="document-body"></div>
+    </div>
+
+    <script>
+      function loadVideo() {
+        const selectElement = document.getElementById("video-select");
+        const selectedValue = selectElement.value;
+        const documentTitle = document.querySelector(".document-title");
+
+        documentTitle.innerText = selectedValue;
+
+        const videoElement = document.createElement("video");
+        videoElement.setAttribute("src", selectedValue);
+        videoElement.setAttribute("type", "video/mp4");
+        videoElement.setAttribute("width", "100%");
+        videoElement.setAttribute("height", "100%");
+        videoElement.setAttribute("controls", "true");
+
+        const documentBody = document.querySelector(".document-body");
+        documentBody.innerHTML = "";
+        documentBody.appendChild(videoElement);
+      }
+    </script>
+  </body>
+</html>
